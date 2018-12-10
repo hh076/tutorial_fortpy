@@ -15,12 +15,13 @@ T_PTR_INT    = POINTER( c_int32 )
 T_PTR_INT8   = POINTER( c_int64 )
 T_PTR_DOUBLE = POINTER( c_double )
 
-libreadfort = CDLL( "libreadfort.so" )
+libreadfort = CDLL( "./libreadfort.so" )
 libreadfort.read_fort_.restype  = T_PTR_VOID
 libreadfort.read_fort_.argtypes = [ T_PTR_INT, T_PTR_INT, T_PTR_DOUBLE, T_PTR_DOUBLE,
                                     T_PTR_INT, T_PTR_INT, T_PTR_DOUBLE ]
 
 ##########################################
+iunit     = 88
 iunit     = 99
 iunit32   = c_int32( iunit )
 natom32   = c_int32()

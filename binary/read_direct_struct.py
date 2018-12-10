@@ -35,7 +35,8 @@ def readrecord( ifs ):
 #################################
 #################################
 #################################
-filename = "fort.9"
+filename = "fort.99"
+filename = "fort.88"
 
 ifs   = open( filename, 'rb' )
 data  = readrecord( ifs )

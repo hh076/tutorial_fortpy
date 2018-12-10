@@ -5,6 +5,7 @@
        integer i, idummy, j, na, nb, natom
        real*8 zz(100), xyz(3,100), a(nrow,ncol)
 !
+       iu = 88
        iu = 99
        read(iu) natom
        do i = 1, natom
