@@ -10,6 +10,12 @@
       real*8   atom_zz(*),   atom_xyz(*),  prim_exp(*),  prim_coe(*)
       real*8   tol
       integer  level_dbg_print
+      integer  i
+      write(*,*) 'f:', numb_atom, numb_shell, numb_prim
+      do i = 1, numb_shell
+          write(*,'(5i4)') i, shel_lqn( i ), shel_tem( i ),
+     &                        shel_atm( i ), shel_add( i )
+      end do
       call int1_t_init( numb_atom, numb_shell, numb_prim,
      &                  shel_lqn,  shel_tem,   shel_atm,  shel_add,
      &                  atom_zz,   atom_xyz,

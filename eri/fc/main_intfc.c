@@ -63,12 +63,37 @@ int main()
                     shel_lqn, shel_tem, shel_atm, shel_add,
                     atom_zz,  atom_xyz, prim_exp, prim_coe,
                     &tol,     &level_print ) ;
+    int1_t_init_f_( &numb_atom, &numb_shell, &numb_prim,
+                    shel_lqn, shel_tem, shel_atm, shel_add,
+                    atom_zz,  atom_xyz, prim_exp, prim_coe,
+                    &tol,     &level_print ) ;
+    int1_v_init_f_( &numb_atom, &numb_shell, &numb_prim,
+                    shel_lqn, shel_tem, shel_atm, shel_add,
+                    atom_zz,  atom_xyz, prim_exp, prim_coe,
+                    &tol,     &level_print ) ;
 
+    fprintf( stdout, "s:\n" ) ;
     for( is = 0 ; is < numb_shell ; is++ ) {
         for( js = 0 ; js <= is ; js++ ) {
 		    for ( i = 0 ; i < 81 ; i++ ) { DINT_cont[ i ] = 0 ; }
             int1_s_calc_f_ ( &is, &js, &inttype, &nsize_int, DINT_cont ) ;
             int1_s_print_f_( &is, &js, &inttype, &nsize_int, DINT_cont ) ;
+	    }
+	}
+    fprintf( stdout, "t:\n" ) ;
+    for( is = 0 ; is < numb_shell ; is++ ) {
+        for( js = 0 ; js <= is ; js++ ) {
+		    for ( i = 0 ; i < 81 ; i++ ) { DINT_cont[ i ] = 0 ; }
+            int1_t_calc_f_ ( &is, &js, &inttype, &nsize_int, DINT_cont ) ;
+            int1_t_print_f_( &is, &js, &inttype, &nsize_int, DINT_cont ) ;
+	    }
+	}
+    fprintf( stdout, "v:\n" ) ;
+    for( is = 0 ; is < numb_shell ; is++ ) {
+        for( js = 0 ; js <= is ; js++ ) {
+		    for ( i = 0 ; i < 81 ; i++ ) { DINT_cont[ i ] = 0 ; }
+            int1_v_calc_f_ ( &is, &js, &inttype, &nsize_int, DINT_cont ) ;
+            int1_v_print_f_( &is, &js, &inttype, &nsize_int, DINT_cont ) ;
 	    }
 	}
 	return 0 ;

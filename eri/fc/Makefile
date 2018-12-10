@@ -7,25 +7,25 @@ FCFLAGS = -Wall -g -fPIC
 CCFLAGS = -Wall -g -fPIC
 LDFLAGS = -Wall -g -fPIC
 
-EXEF  = test_intf
-EXECF = test_intfc
-EXECC = test_intcc
-OBJSF = main_intf.o
+EXECF  = test_intf
+EXECFC = test_intfc
+EXECCC = test_intcc
+OBJSF  = main_intf.o
 OBJSFC = main_intfc.o
 OBJSCC = main_intcc.o
 
-LIBFLAGS = -L../molint -lmolint -lgfortran
+LIBFLAGS = -L../molint -lmolint #-lgfortran
 
-all: $(EXEF) $(EXEFC) $(EXECC)
+all: $(EXECF) $(EXECFC) $(EXECCC)
 
-$(EXEF): $(OBJSF)
-	$(FC) $(LDFLAGS) -o $(EXEF) $(OBJSF) $(LIBFLAGS)
+$(EXECF): $(OBJSF)
+	$(FC) $(LDFLAGS) -o $(EXECF)  $(OBJSF)  $(LIBFLAGS)
 
-$(EXEFC): $(OBJSFC)
-	$(CC) $(LDFLAGS) -o $(EXEFC) $(OBJSFC) $(LIBFLAGS)
+$(EXECFC): $(OBJSFC)
+	$(CC) $(LDFLAGS) -o $(EXECFC) $(OBJSFC) $(LIBFLAGS) -lgfortran
 
-$(EXECC): $(OBJSCC)
-	$(CC) $(LDFLAGS) -o $(EXECC) $(OBJSCC) $(LIBFLAGS)
+$(EXECCC): $(OBJSCC)
+	$(CC) $(LDFLAGS) -o $(EXECCC) $(OBJSCC) $(LIBFLAGS) -lgfortran
 
 main_intf.o: main_intf.f
 	$(FC) $(FCFLAGS) -c main_intf.f
@@ -38,4 +38,4 @@ main_intcc.o: main_intcc.c
 
 clean:
 	-rm *.o
-	-rm $(EXEF) $(EXEC) $(EXECC)
+	-rm $(EXECF) $(EXECFC) $(EXECCC)

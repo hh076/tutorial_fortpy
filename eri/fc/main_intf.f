@@ -79,10 +79,36 @@
      &                  atom_zz,   atom_xyz,
      &                  prim_exp,  prim_coe,
      &                  tol,       level_print )
+      call int1_t_init_f ( numb_atom, numb_shell, numb_prim,
+     &                  shel_lqn,  shel_tem,   shel_atm,   shel_add,
+     &                  atom_zz,   atom_xyz,
+     &                  prim_exp,  prim_coe,
+     &                  tol,       level_print )
+      call int1_v_init_f ( numb_atom, numb_shell, numb_prim,
+     &                  shel_lqn,  shel_tem,   shel_atm,   shel_add,
+     &                  atom_zz,   atom_xyz,
+     &                  prim_exp,  prim_coe,
+     &                  tol,       level_print )
+!
+      write(*,*) 's:'
       do is = 0, numb_shell-1
          do js = 0, is
             call int1_s_calc_f ( is, js, inttype, nsize_int, DINT_cont )
             call int1_s_print_f( is, js, inttype, nsize_int, DINT_cont )
+         end do
+      end do
+      write(*,*) 't:'
+      do is = 0, numb_shell-1
+         do js = 0, is
+            call int1_t_calc_f ( is, js, inttype, nsize_int, DINT_cont )
+            call int1_t_print_f( is, js, inttype, nsize_int, DINT_cont )
+         end do
+      end do
+      write(*,*) 'v:'
+      do is = 0, numb_shell-1
+         do js = 0, is
+            call int1_v_calc_f ( is, js, inttype, nsize_int, DINT_cont )
+            call int1_v_print_f( is, js, inttype, nsize_int, DINT_cont )
          end do
       end do
       end
