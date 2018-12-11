@@ -1,0 +1,4 @@
+DIR=$PWD
+
+LD_LIBRARY_PATH=$DIR/mmult:$DIR/eri/molint:$DIR/binary:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH

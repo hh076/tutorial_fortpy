@@ -86,7 +86,7 @@ def read38( fname ):
     for isym in range( nsym ):
         if ( nso[ isym ]*nmo[ isym ] == 0 ):
             continue
-        amo_sym = np.empty( [ nso[ isym ], nmo[ isym ] ], dtype = 'float64', order = 'F' )
+        #amo_sym = np.empty( [ nso[ isym ], nmo[ isym ] ], dtype = 'float64', order = 'F' )
         data  = read_record( ifs )
         iptr = 4
         #sys.stderr.write( "read: %4d: %4d, %4d\n" % ( isym, nso[ isym ], nmo[ isym ] ) )
@@ -149,7 +149,7 @@ def write38( fname, amo ):
             continue
         bytebuf = bytes()
         bytebuf += struct.pack( 'i', isym )
-        bytebuf += amo[ isym ].tobytes()
+        bytebuf += amo[ isym ].transpose().tobytes()
         #sys.stderr.write( "write: %4d: %4d, %4d\n" % ( isym, nso[ isym ], nmo[ isym ] ) )
         write_record( iofs, bytebuf, 4 + 8 * nso[ isym ] * nmo[ isym ] )
         #for imo in range( nmo[ isym ] ):

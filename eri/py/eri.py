@@ -7,29 +7,22 @@ import sys, os
 from rhf_input import *
 from wrapper   import *
 
-##########################################
-#T_PTR_VOID   = ctypes.c_void_p
-#T_INT        = ctypes.c_int32
-#T_DOUBLE     = ctypes.c_double
-#T_PTR_INT    = ctypes.POINTER( ctypes.c_int32 )
-#T_PTR_DOUBLE = ctypes.POINTER( ctypes.c_double )
-
-print numb_atom
-print numb_shell
-print numb_prim
-print maxl
-print
-print shel_lqn
-print shel_atm
-print shel_tem
-print shel_add
-print shel_ini
-print atom_zz
-print atom_xyz
-print prim_exp
-print prim_coe
-tol_eri = 1.0e+10
-lvl_dbg = 4
+#print numb_atom
+#print numb_shell
+#print numb_prim
+#print maxl
+#print
+#print shel_lqn
+#print shel_atm
+#print shel_tem
+#print shel_add
+#print shel_ini
+#print atom_zz
+#print atom_xyz
+#print prim_exp
+#print prim_coe
+#tol_eri = 1.0e+10
+#lvl_dbg = 4
 
 ##########################################
 lib = setlib( "../molint/libmolint.so" )

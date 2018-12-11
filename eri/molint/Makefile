@@ -1,15 +1,15 @@
 FC = gfortran
 CC = gcc
 LD = gcc
-FCFLAGS = -Wall -g -fPIC -I.
-CCFLAGS = -Wall -g -fPIC -I.
+FCFLAGS = -O2 -Wall -g -fPIC -I.
+CCFLAGS = -O2 -Wall -g -fPIC -I.
 
 SO = libmolint.so
 OBJFS = int1_s_drv_f.o int1_t_drv_f.o int1_v_drv_f.o int2_drv_f.o
 OBJS = fmt.o int1_coefs.o int1_iic.o int1_s_drv.o int1_s_rec_call.o int1_s_rec_drv.o int1_s_rec_verexec.o int1_save.o int1_t_drv.o int1_t_rec_call.o int1_t_rec_drv.o int1_t_rec_verexec.o int1_v_drv.o int1_v_rec_call.o int1_v_rec_drv.o int1_v_rec_verexec.o int2_atomic.o int2_drv.o int2_iic.o int2_rec_call.o int2_rec_drv.o int2_rec_horexec.o int2_rec_verexec.o int2_save.o $(OBJFS)
 
 ###############################################
-LDFLAGS = -Wall -g -fPIC -Wl,-soname,$(SO) -lgfortran -lstdc++
+LDFLAGS = -O2 -Wall -g -fPIC -Wl,-soname,$(SO) -lgfortran -lstdc++
 
 all: $(SO)
 $(SO): $(OBJS)

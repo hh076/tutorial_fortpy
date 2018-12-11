@@ -4,11 +4,11 @@ from sys    import *
 import numpy as np
 
 ##########################################
-T_PTR_VOID   = ctypes.c_void_p
-T_INT        = ctypes.c_int32
-T_DOUBLE     = ctypes.c_double
-T_PTR_INT    = ctypes.POINTER( ctypes.c_int32 )
-T_PTR_DOUBLE = ctypes.POINTER( ctypes.c_double )
+T_PTR_VOID   = c_void_p
+T_INT        = c_int32
+T_DOUBLE     = c_double
+T_PTR_INT    = POINTER( c_int32 )
+T_PTR_DOUBLE = POINTER( c_double )
 
 libmat2 = CDLL( "./libmmult.so" )
 libmat2.mmult_.restype  = T_PTR_VOID

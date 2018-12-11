@@ -10,7 +10,7 @@ LD = gfortran
 FCFLAGS = -Wall -g -fPIC -I.
 CCFLAGS = -Wall -g -fPIC -I.
 LDFLAGS = -Wall -g -fPIC -L. -lmmult
-SOFLAGS = -Wall -g -fPIC -Wl,-soname,$(SO) -lgfortran -lstdc++
+SOFLAGS = -Wall -g -fPIC -Wl,-soname,$(SO) #-lgfortran -lstdc++
 
 all: $(SO) $(EXES)
 $(SO): $(OBJSLIB)
