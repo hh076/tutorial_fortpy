@@ -86,14 +86,14 @@ def read38( fname ):
     for isym in range( nsym ):
         if ( nso[ isym ]*nmo[ isym ] == 0 ):
             continue
-        #amo_sym = np.empty( [ nso[ isym ], nmo[ isym ] ], dtype = 'float64', order = 'F' )
         data  = read_record( ifs )
         iptr = 4
         #sys.stderr.write( "read: %4d: %4d, %4d\n" % ( isym, nso[ isym ], nmo[ isym ] ) )
         buff = np.frombuffer( data, dtype = 'float64', count = nso[ isym ] * nmo[ isym ], offset = iptr )
         buff_2d = np.reshape( buff, [ nso[ isym ], nmo[ isym ] ], order = 'F' )
-        b2t = buff_2d.transpose()
-        amo.append( b2t )
+        #b2t = buff_2d.transpose()
+        #amo.append( b2t )
+        amo.append( buff_2d )
         #for imo in range( nmo[ isym ] ):
         #    amo_sym[ imo ] = np.frombuffer( data, dtype = 'float64', count = nso[ isym ], offset = iptr + 8 * nso[ isym ] * imo )
         #amo.append( amo_sym )

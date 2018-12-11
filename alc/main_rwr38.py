@@ -17,16 +17,16 @@ print( "B: %s" % ( nmo ) )
 for isym in range( nsym ):
     for imo in range( nmo[ isym ] ):
         for iso in range( nso[ isym ] ):
-            print( "B: %4d%4d%4d: %26.16e" % ( isym+1, imo+1, iso+1, amo[ isym ][ imo ][ iso ] ) )
+            print( "B: %4d%4d%4d: %26.16e" % ( isym+1, imo+1, iso+1, amo[ isym ][ iso, imo ] ) )
 
 for imo in range( nmo[ 0 ] ):
     amo[ 0 ].flags.writeable = True
     for iso in range( nso[ 0 ] ):
         if ( imo >= 5 ):
             if ( imo == iso ):
-                amo[ 0 ][ imo ][ iso ] = 1
+                amo[ 0 ][ iso, imo ] = 1
             else:
-                amo[ 0 ][ imo ][ iso ] = 0
+                amo[ 0 ][ iso, imo ] = 0
 
 write38( foname, amo )
 
@@ -37,4 +37,4 @@ print( "A: %s" % ( nmo ) )
 for isym in range( nsym ):
     for imo in range( nmo[ isym ] ):
         for iso in range( nso[ isym ] ):
-            print( "A: %4d%4d%4d: %26.16e" % ( isym+1, imo+1, iso+1, amo[ isym ][ imo ][ iso ] ) )
+            print( "A: %4d%4d%4d: %26.16e" % ( isym+1, imo+1, iso+1, amo[ isym ][ iso, imo ] ) )
