@@ -1,4 +1,4 @@
-- 作成中です。tutorial_fortpy.pdf を御覧ください。
+- 作成中です。プログラムソースに付属の tutorial_fortpy.pdf を御覧ください。
 # レガシーFortran プログラムを利用するPython プログラミング
 ## あらすじ
 ## はじめに
